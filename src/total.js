@@ -4,7 +4,8 @@ function cartTotal(cart) {
   for (const item of cart.items || []) {
     total += item.price * item.quantity;
   }
-  return total;
+  // Round to two decimal places to avoid floating‑point precision errors
+  return Math.round(total * 100) / 100;
 }
 
 module.exports = { cartTotal };
